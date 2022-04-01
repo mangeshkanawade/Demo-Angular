@@ -1,0 +1,31 @@
+.ListTableContainer{
+  width: 90%;
+  margin: auto;
+}
+.hide{
+  display: none;
+}
+mat-footer-row mat-footer-cell {
+
+  justify-content: center;
+}
+.search-div{
+  margin-top: 20px;
+  /* margin: auto; */
+}
+.SearchForm{
+  padding-left: 20px;
+}
+
+.AddButton{  
+  color: rgba(106, 211, 21, 0.918);
+}
+
+.SearchButton{
+  margin-left: 20px;
+}
+
+.ResetButton{
+  margin-left: 20px;
+  color: rgba(204, 19, 19, 0.808);
+}
