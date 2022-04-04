@@ -14,4 +14,8 @@ export class ListBookService {
     return this.http.post(this.baseUrl + 'BooksList', objBook);
   }
 
+  GetBookDetails(objBook: Books){
+    return this.http.post(this.baseUrl + 'GetBookDetails', objBook);
+  }
+
 }

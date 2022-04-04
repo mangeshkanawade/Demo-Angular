@@ -1,0 +1,11 @@
+<!-- <p> it Works <br>{{DeleteData|json}}</p> -->
+<div class="form">
+    <p>
+        You want to delete Book <b>{{DeleteData.BookName}}</b>?
+    </p>
+
+    <mat-dialog-actions align="center">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-button [mat-dialog-close]="true" cdkFocusInitial color="warn" (click)="DeleteBook()">Delete</button>
+    </mat-dialog-actions>
+</div>

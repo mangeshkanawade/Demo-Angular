@@ -1,0 +1,61 @@
+<h3 *ngIf="this.form.value.BookId <= 0; else elseBlock">Add Book
+<button class="close-button" mat-dialog-close>
+    <mat-icon>close</mat-icon>
+</button>
+</h3>
+<ng-template #elseBlock>
+    <h3>Update Book
+        <button class="close-button" mat-dialog-close>
+            <mat-icon>close</mat-icon>
+        </button>
+        </h3>
+</ng-template>
+<div class="container">
+    <form [formGroup]="this.form" class="form" (ngSubmit)="AddBook()">
+        <input type="hidden" formControlName="BookId" >
+        <mat-form-field>
+            <input formControlName="BookName" matInput placeholder="Enter Book Name">
+            <mat-error>Book Name is Required.</mat-error>
+        </mat-form-field>
+        <br>
+
+        <mat-form-field>
+            <mat-select formControlName="BookCategoryId" placeholder="Select Book Category">
+                <mat-option> Select Book Category </mat-option>
+                <mat-option *ngFor="let category of BooksCategoriesList" [value]="category.BookCategoryId">
+                    {{ category.BookCategoryName }}
+                </mat-option>
+            </mat-select>
+            <mat-error>Book Category is Required.</mat-error>
+        </mat-form-field>
+        <br>
+
+        <mat-form-field>
+            <mat-select formControlName="BookPublisherId" placeholder="Select Book Publication">
+                <mat-option>Select Book Publication</mat-option>
+                <mat-option *ngFor="let category of BooksPublicationsList" [value]="category.BookPublisherId">
+                    {{ category.BookPublisherName }}
+                </mat-option>
+            </mat-select>
+            <mat-error>Book Publication is Required.</mat-error>
+        </mat-form-field>
+        <br>
+
+        <mat-form-field>
+            <input formControlName="BookQuantity" matInput placeholder="Enter Book Quantity" type="number">
+            <mat-error *ngIf="this.form.controls['BookQuantity'].errors?.['required']">Book Quantity is Required.</mat-error>
+            <mat-error *ngIf="this.form.controls['BookQuantity'].errors?.['min']">Book Quantity must be more than 1.</mat-error>
+            <mat-error *ngIf="this.form.controls['BookQuantity'].errors?.['max']">Book Quantity must not be more than 150.</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-checkbox formControlName="IsActive">Is Active</mat-checkbox>
+        <br>
+        <mat-dialog-actions align="end">
+        <div class="Button">            
+            <button mat-raised-button color="primary" [disabled]="this.form.invalid"> Submit </button>
+            <button mat-raised-button  type="reset"> Clear </button>
+            <button mat-button mat-dialog-close color="warn">Cancel</button>
+        </div>
+    </mat-dialog-actions>
+    </form>
+</div>

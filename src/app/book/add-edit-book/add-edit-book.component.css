@@ -1,0 +1,33 @@
+.container {
+  width: auto;
+  margin: auto;
+}
+
+.form > * {
+  width: 500px;
+  margin: auto;
+}
+
+.Button > * {
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+snack-bar-container.success {
+  background-color: green;
+  color: antiquewhite;
+}
+
+snack-bar-container.notification simple-snack-bar {
+  font-size: 18px !important;
+  font-weight: bold;
+}
+
+.close-button{
+  border: 0ch;
+  background-color: white;
+  float: right;
+  margin-top: 0%;
+  height: inherit;
+  width: min-content;
+}
