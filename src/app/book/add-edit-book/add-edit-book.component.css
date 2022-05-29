@@ -23,7 +23,7 @@ snack-bar-container.notification simple-snack-bar {
   font-weight: bold;
 }
 
-.close-button{
+.close-button {
   border: 0ch;
   background-color: white;
   float: right;

@@ -4,10 +4,10 @@
         <button mat-raised-button class="AddButton" (click)="AddBookCall()">
             <mat-icon class="mat-18">add</mat-icon> Add Book
         </button>
-        <mat-form-field class="SearchForm">
+        <mat-form-field class="SearchForm" appearance="outline" >
             <input matInput type="text" [(ngModel)]="objBook.BookName"placeholder="Search Book Name" >
         </mat-form-field>
-        <mat-form-field class="SearchForm">
+        <mat-form-field class="SearchForm" appearance="outline">
             <mat-select [(ngModel)]="objBook.BookCategoryId" placeholder="Select Book Category">
                 <mat-option> Select Book Category </mat-option>
                 <mat-option *ngFor="let category of BooksCategoriesList" [value]="category.BookCategoryId">
@@ -16,7 +16,7 @@
             </mat-select>
         </mat-form-field>
 
-        <mat-form-field class="SearchForm">
+        <mat-form-field class="SearchForm" appearance="outline">
             <mat-select [(ngModel)]="objBook.BookPublisherId" placeholder="Select Book Publication" >
                 <mat-option>Select Book Publication</mat-option>
                 <mat-option *ngFor="let category of BooksPublicationsList" [value]="category.BookPublisherId">
@@ -30,7 +30,7 @@
         </button>
 
         <button  mat-raised-button class="ResetButton" (click)="ResetSearchForm()"> 
-            <mat-icon class="mat-18">search</mat-icon> Reset
+            <mat-icon class="mat-18">restore_page</mat-icon> Reset
         </button>
     </div>
 
