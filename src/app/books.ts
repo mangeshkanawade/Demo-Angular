@@ -7,6 +7,6 @@ export class Books {
     BookPublisherName: string;
     BookQuantity: number;
     IsActive: boolean;
-    PageSize: number;
+    PageSize: number = 500;
     PageNumber: number;
 }

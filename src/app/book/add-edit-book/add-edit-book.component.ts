@@ -1,10 +1,10 @@
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { ListBookService } from './../list-book/list-book.service';
 import { AddEditBookService } from './add-edit-book.service';
-import { Component, OnInit, Injectable, Inject } from '@angular/core';
+import { Component, OnInit, Injectable, Inject, Optional } from '@angular/core';
 import { Books } from 'src/app/books';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-edit-book',
@@ -31,6 +31,8 @@ export class AddEditBookComponent implements OnInit {
     public AddEditBookService: AddEditBookService,
     public ListBookService: ListBookService,
     public MatSnackBar: MatSnackBar,
+    @Optional() public dialogRef: MatDialogRef<AddEditBookComponent>,
+
     @Inject(MAT_DIALOG_DATA) public EditData: any
   ) { }
 
@@ -60,7 +62,12 @@ export class AddEditBookComponent implements OnInit {
     if (this.form.valid) {
       this.AddEditBookService.AddBook(this.form.value).subscribe((data: any) => {
         if (data) {
-          this.MatSnackBar.open('Book Added', '', this.config)
+          if (this.EditData) {
+            this.MatSnackBar.open('Book Updated', '', this.config)
+          } else {
+            this.MatSnackBar.open('Book Added', '', this.config)
+          }
+          this.dialogRef.close();
         }
       });
     }
